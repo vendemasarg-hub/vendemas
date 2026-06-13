@@ -25,7 +25,6 @@
 html { scroll-behavior:smooth; }
 body { font-family:'Open Sans', sans-serif; color:var(--texto); background:var(--blanco); }
 
-/* NAV */
 .nav {
   background:var(--azul);
   padding:14px 40px;
@@ -61,7 +60,6 @@ body { font-family:'Open Sans', sans-serif; color:var(--texto); background:var(-
 }
 .nav-cta:hover { background:var(--naranja2); }
 
-/* HERO */
 .hero {
   background:linear-gradient(135deg, var(--azul) 0%, var(--azul2) 100%);
   padding:70px 40px 60px;
@@ -127,7 +125,6 @@ body { font-family:'Open Sans', sans-serif; color:var(--texto); background:var(-
   line-height:1.7;
 }
 
-/* PRECIO HERO */
 .precio-box {
   background:rgba(255,255,255,0.07);
   border:1px solid rgba(255,255,255,0.15);
@@ -196,7 +193,6 @@ body { font-family:'Open Sans', sans-serif; color:var(--texto); background:var(-
 }
 .urgencia strong { color:var(--amarillo); }
 
-/* CONTADOR */
 .contador-wrap {
   background:var(--amarillo);
   padding:16px 40px;
@@ -215,19 +211,14 @@ body { font-family:'Open Sans', sans-serif; color:var(--texto); background:var(-
   text-transform:uppercase;
   letter-spacing:1px;
 }
-.contador {
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
+.contador { display:flex; gap:8px; align-items:center; }
 .cnt-unit {
   background:var(--azul);
   color:var(--blanco);
   font-family:'Montserrat', sans-serif;
   font-weight:900;
   font-size:24px;
-  width:52px;
-  height:52px;
+  width:52px; height:52px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -235,7 +226,6 @@ body { font-family:'Open Sans', sans-serif; color:var(--texto); background:var(-
 }
 .cnt-sep { font-family:'Montserrat', sans-serif; font-weight:900; font-size:24px; color:var(--azul); }
 
-/* SECCIONES */
 section { padding:70px 40px; }
 .section-label {
   font-family:'Montserrat', sans-serif;
@@ -266,7 +256,6 @@ section { padding:70px 40px; }
   line-height:1.7;
 }
 
-/* PARA QUIEN */
 .para-quien { background:var(--gris); }
 .pq-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; max-width:900px; margin:0 auto; }
 .pq-card {
@@ -280,7 +269,6 @@ section { padding:70px 40px; }
 .pq-title { font-family:'Montserrat', sans-serif; font-weight:700; font-size:15px; color:var(--azul); margin-bottom:6px; }
 .pq-desc { font-size:13px; color:var(--texto2); line-height:1.6; }
 
-/* QUE INCLUYE */
 .incluye-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; max-width:900px; margin:0 auto; }
 .incluye-item {
   display:flex;
@@ -307,7 +295,6 @@ section { padding:70px 40px; }
 .inc-title { font-family:'Montserrat', sans-serif; font-weight:700; font-size:14px; color:var(--azul); margin-bottom:3px; }
 .inc-desc { font-size:12px; color:var(--texto2); line-height:1.5; }
 
-/* MODULOS */
 .modulos-sec { background:var(--azul); }
 .modulos-sec .section-title { color:var(--blanco); }
 .modulos-sec .section-sub { color:rgba(255,255,255,0.6); }
@@ -323,19 +310,10 @@ section { padding:70px 40px; }
   transition:background 0.2s;
 }
 .mod-card:hover { background:rgba(255,107,0,0.1); border-color:var(--naranja); }
-.mod-num {
-  font-family:'Montserrat', sans-serif;
-  font-weight:900;
-  font-size:22px;
-  color:var(--naranja);
-  opacity:0.7;
-  min-width:36px;
-  line-height:1;
-}
+.mod-num { font-family:'Montserrat', sans-serif; font-weight:900; font-size:22px; color:var(--naranja); opacity:0.7; min-width:36px; line-height:1; }
 .mod-title { font-family:'Montserrat', sans-serif; font-weight:700; font-size:14px; color:var(--blanco); margin-bottom:4px; }
 .mod-desc { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.5; }
 
-/* TESTIMONIOS */
 .testimonios { background:var(--gris); }
 .test-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; max-width:900px; margin:0 auto; }
 .test-card {
@@ -361,7 +339,6 @@ section { padding:70px 40px; }
 .test-name { font-family:'Montserrat', sans-serif; font-weight:700; font-size:14px; color:var(--azul); }
 .test-ciudad { font-size:12px; color:var(--texto2); }
 
-/* GARANTIA */
 .garantia {
   background:linear-gradient(135deg,#F0FFF7,#E8FFE8);
   border:2px solid var(--verde);
@@ -375,7 +352,6 @@ section { padding:70px 40px; }
 .gar-title { font-family:'Montserrat', sans-serif; font-weight:900; font-size:24px; color:var(--verde); margin-bottom:12px; }
 .gar-text { font-size:15px; color:var(--texto2); line-height:1.7; }
 
-/* CTA FINAL */
 .cta-final {
   background:linear-gradient(135deg,var(--naranja),var(--naranja2));
   padding:80px 40px;
@@ -408,7 +384,6 @@ section { padding:70px 40px; }
 .cta-antes { font-size:16px; color:rgba(255,255,255,0.6); text-decoration:line-through; }
 .cta-ahora { font-family:'Montserrat', sans-serif; font-weight:900; font-size:36px; color:var(--amarillo); }
 
-/* FOOTER */
 footer {
   background:var(--azul);
   padding:30px 40px;
@@ -418,7 +393,6 @@ footer {
 }
 footer strong { color:rgba(255,255,255,0.7); }
 
-/* FAQ */
 .faq-list { max-width:700px; margin:0 auto; }
 .faq-item { border-bottom:1px solid var(--gris2); padding:20px 0; cursor:pointer; }
 .faq-q {
@@ -448,13 +422,11 @@ footer strong { color:rgba(255,255,255,0.7); }
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="logo">Vende<span>Más</span></div>
-  <a class="nav-cta" href="https://wa.me/?text=Hola%2C%20quiero%20el%20curso%20de%20Mercado%20Libre" target="_blank">🛒 COMPRAR AHORA — $9.900</a>
+  <a class="nav-cta" href="https://wa.me/5491128481566?text=Hola%2C%20quiero%20el%20curso%20de%20Mercado%20Libre" target="_blank">🛒 COMPRAR AHORA — $9.900</a>
 </nav>
 
-<!-- CONTADOR -->
 <div class="contador-wrap">
   <div class="contador-label">⚡ Oferta especial termina en:</div>
   <div class="contador">
@@ -467,7 +439,6 @@ footer strong { color:rgba(255,255,255,0.7); }
   <div class="contador-label">— Precio normal: <s>$32.000</s></div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-badge">🔥 Más de 500 emprendedores ya lo tienen</div>
   <h1>El Curso de<br><em>Mercado Libre</em><br>más completo de Argentina</h1>
@@ -480,13 +451,12 @@ footer strong { color:rgba(255,255,255,0.7); }
     <div class="descuento-badge">🎉 Ahorrás $22.100 — 69% OFF</div>
   </div>
 
-  <a class="hero-cta" href="https://wa.me/?text=Hola%2C%20quiero%20el%20curso%20de%20Mercado%20Libre" target="_blank">
+  <a class="hero-cta" href="https://mpago.la/2qL2Sog" target="_blank">
     💬 QUIERO EL CURSO AHORA
   </a>
   <div class="urgencia">⏰ Esta oferta vence hoy. <strong>Quedan pocas horas al precio de $9.900.</strong></div>
 </div>
 
-<!-- PARA QUIÉN -->
 <section class="para-quien">
   <div class="section-label">¿Es para mí?</div>
   <div class="section-title">Este curso es para vos si...</div>
@@ -515,7 +485,6 @@ footer strong { color:rgba(255,255,255,0.7); }
   </div>
 </section>
 
-<!-- QUÉ INCLUYE -->
 <section>
   <div class="section-label">Contenido completo</div>
   <div class="section-title">Todo lo que incluye el curso</div>
@@ -536,7 +505,6 @@ footer strong { color:rgba(255,255,255,0.7); }
   </div>
 </section>
 
-<!-- MÓDULOS -->
 <section class="modulos-sec">
   <div class="section-label" style="color:var(--naranja)">Estructura del curso</div>
   <div class="section-title">9 Módulos completos</div>
@@ -554,7 +522,6 @@ footer strong { color:rgba(255,255,255,0.7); }
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
 <section class="testimonios">
   <div class="section-label">Lo que dicen los alumnos</div>
   <div class="section-title">Resultados reales</div>
@@ -581,7 +548,6 @@ footer strong { color:rgba(255,255,255,0.7); }
   </div>
 </section>
 
-<!-- GARANTÍA -->
 <section>
   <div class="section-label">Sin riesgo</div>
   <div class="section-title">Garantía de 7 días</div>
@@ -593,7 +559,6 @@ footer strong { color:rgba(255,255,255,0.7); }
   </div>
 </section>
 
-<!-- FAQ -->
 <section style="background:var(--gris)">
   <div class="section-label">Dudas frecuentes</div>
   <div class="section-title">Preguntas frecuentes</div>
@@ -622,11 +587,10 @@ footer strong { color:rgba(255,255,255,0.7); }
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <div class="cta-final">
   <h2>¿Seguís esperando el momento ideal?</h2>
   <p>El momento ideal no existe. El que empieza hoy, en 60 días tiene resultados.<br>El que espera, en 60 días sigue igual.</p>
-  <a class="cta-btn" href="https://wa.me/?text=Hola%2C%20quiero%20el%20curso%20de%20Mercado%20Libre" target="_blank">
+  <a class="cta-btn" href="https://mpago.la/2qL2Sog" target="_blank">
     💬 QUIERO EL CURSO — $9.900
   </a>
   <div class="cta-precio-wrap">
@@ -635,26 +599,22 @@ footer strong { color:rgba(255,255,255,0.7); }
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <strong>VendeMás</strong> · Cursos digitales para emprendedores argentinos<br>
   <span style="margin-top:8px;display:block">Pago seguro con MercadoPago · Garantía 7 días · Entrega inmediata</span>
 </footer>
 
 <script>
-// FAQ accordion
 document.querySelectorAll('.faq-item').forEach(item => {
   item.querySelector('.faq-q').addEventListener('click', () => {
     item.classList.toggle('open');
   });
 });
 
-// Countdown timer - 23 hours from now
 function startCountdown() {
   const end = new Date();
   end.setHours(end.getHours() + 23);
   end.setMinutes(end.getMinutes() + 47);
-
   function update() {
     const now = new Date();
     const diff = end - now;
