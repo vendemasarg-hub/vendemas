@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VendeMás — Curso Completo Mercado Libre</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap');
+
+:root {
+  --naranja: #FF6B00;
+  --naranja2: #E55A00;
+  --azul: #0D1B2A;
+  --azul2: #1A2F45;
+  --amarillo: #FFD60A;
+  --blanco: #FFFFFF;
+  --gris: #F5F5F5;
+  --gris2: #E8E8E8;
+  --texto: #1A1A1A;
+  --texto2: #555;
+  --verde: #00A650;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Open Sans', sans-serif; color:var(--texto); background:var(--blanco); }
+
+/* NAV */
+.nav {
+  background:var(--azul);
+  padding:14px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 20px rgba(0,0,0,0.3);
+}
+.logo {
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:22px;
+  color:var(--blanco);
+  letter-spacing:-0.5px;
+}
+.logo span { color:var(--naranja); }
+.nav-cta {
+  background:var(--naranja);
+  color:var(--blanco);
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
+  font-size:13px;
+  padding:10px 20px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  letter-spacing:0.5px;
+  transition:background 0.2s;
+  border-radius:4px;
+}
+.nav-cta:hover { background:var(--naranja2); }
+
+/* HERO */
+.hero {
+  background:linear-gradient(135deg, var(--azul) 0%, var(--azul2) 100%);
+  padding:70px 40px 60px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  top:-100px; left:-100px;
+  width:500px; height:500px;
+  border-radius:50%;
+  background:rgba(255,107,0,0.08);
+  pointer-events:none;
+}
+.hero::after {
+  content:'';
+  position:absolute;
+  bottom:-80px; right:-80px;
+  width:400px; height:400px;
+  border-radius:50%;
+  background:rgba(255,214,10,0.06);
+  pointer-events:none;
+}
+
+.hero-badge {
+  display:inline-block;
+  background:var(--naranja);
+  color:var(--blanco);
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:6px 16px;
+  border-radius:100px;
+  margin-bottom:24px;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { box-shadow:0 0 0 0 rgba(255,107,0,0.4); }
+  50% { box-shadow:0 0 0 10px rgba(255,107,0,0); }
+}
+
+.hero h1 {
+  font-family:'Montserrat', sans-serif;
+  font-size:clamp(28px,5vw,56px);
+  font-weight:900;
+  color:var(--blanco);
+  line-height:1.1;
+  margin-bottom:20px;
+  letter-spacing:-1px;
+}
+.hero h1 em { color:var(--amarillo); font-style:normal; }
+.hero-sub {
+  font-size:18px;
+  color:rgba(255,255,255,0.75);
+  max-width:600px;
+  margin:0 auto 40px;
+  font-weight:300;
+  line-height:1.7;
+}
+
+/* PRECIO HERO */
+.precio-box {
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:16px;
+  padding:30px 40px;
+  display:inline-block;
+  margin-bottom:32px;
+  backdrop-filter:blur(10px);
+}
+.precio-antes {
+  font-size:18px;
+  color:rgba(255,255,255,0.5);
+  text-decoration:line-through;
+  margin-bottom:4px;
+}
+.precio-ahora {
+  font-family:'Montserrat', sans-serif;
+  font-size:clamp(42px,8vw,72px);
+  font-weight:900;
+  color:var(--amarillo);
+  line-height:1;
+  margin-bottom:6px;
+}
+.precio-label {
+  font-size:13px;
+  color:rgba(255,255,255,0.6);
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.descuento-badge {
+  display:inline-block;
+  background:var(--verde);
+  color:var(--blanco);
+  font-family:'Montserrat', sans-serif;
+  font-weight:800;
+  font-size:16px;
+  padding:6px 16px;
+  border-radius:100px;
+  margin-top:12px;
+}
+
+.hero-cta {
+  display:block;
+  background:var(--naranja);
+  color:var(--blanco);
+  font-family:'Montserrat', sans-serif;
+  font-weight:800;
+  font-size:18px;
+  padding:20px 48px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  letter-spacing:0.5px;
+  border-radius:8px;
+  margin:0 auto 16px;
+  max-width:400px;
+  transition:all 0.2s;
+  box-shadow:0 8px 32px rgba(255,107,0,0.4);
+}
+.hero-cta:hover { background:var(--naranja2); transform:translateY(-2px); box-shadow:0 12px 40px rgba(255,107,0,0.5); }
+
+.urgencia {
+  color:rgba(255,255,255,0.6);
+  font-size:13px;
+  margin-top:8px;
+}
+.urgencia strong { color:var(--amarillo); }
+
+/* CONTADOR */
+.contador-wrap {
+  background:var(--amarillo);
+  padding:16px 40px;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.contador-label {
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  color:var(--azul);
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.contador {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.cnt-unit {
+  background:var(--azul);
+  color:var(--blanco);
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:24px;
+  width:52px;
+  height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:6px;
+}
+.cnt-sep { font-family:'Montserrat', sans-serif; font-weight:900; font-size:24px; color:var(--azul); }
+
+/* SECCIONES */
+section { padding:70px 40px; }
+.section-label {
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--naranja);
+  margin-bottom:12px;
+  text-align:center;
+}
+.section-title {
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:clamp(24px,4vw,40px);
+  color:var(--azul);
+  text-align:center;
+  margin-bottom:12px;
+  letter-spacing:-0.5px;
+  line-height:1.2;
+}
+.section-sub {
+  text-align:center;
+  color:var(--texto2);
+  font-size:16px;
+  max-width:560px;
+  margin:0 auto 48px;
+  line-height:1.7;
+}
+
+/* PARA QUIEN */
+.para-quien { background:var(--gris); }
+.pq-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; max-width:900px; margin:0 auto; }
+.pq-card {
+  background:var(--blanco);
+  border-radius:12px;
+  padding:24px;
+  border-left:4px solid var(--naranja);
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+.pq-icon { font-size:28px; margin-bottom:12px; }
+.pq-title { font-family:'Montserrat', sans-serif; font-weight:700; font-size:15px; color:var(--azul); margin-bottom:6px; }
+.pq-desc { font-size:13px; color:var(--texto2); line-height:1.6; }
+
+/* QUE INCLUYE */
+.incluye-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; max-width:900px; margin:0 auto; }
+.incluye-item {
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:var(--blanco);
+  border:1.5px solid var(--gris2);
+  border-radius:10px;
+  padding:18px;
+  transition:border-color 0.2s;
+}
+.incluye-item:hover { border-color:var(--naranja); }
+.inc-icon {
+  background:var(--naranja);
+  color:var(--blanco);
+  width:36px; height:36px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  flex-shrink:0;
+}
+.inc-title { font-family:'Montserrat', sans-serif; font-weight:700; font-size:14px; color:var(--azul); margin-bottom:3px; }
+.inc-desc { font-size:12px; color:var(--texto2); line-height:1.5; }
+
+/* MODULOS */
+.modulos-sec { background:var(--azul); }
+.modulos-sec .section-title { color:var(--blanco); }
+.modulos-sec .section-sub { color:rgba(255,255,255,0.6); }
+.modulos-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; max-width:900px; margin:0 auto; }
+.mod-card {
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  padding:18px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  transition:background 0.2s;
+}
+.mod-card:hover { background:rgba(255,107,0,0.1); border-color:var(--naranja); }
+.mod-num {
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:22px;
+  color:var(--naranja);
+  opacity:0.7;
+  min-width:36px;
+  line-height:1;
+}
+.mod-title { font-family:'Montserrat', sans-serif; font-weight:700; font-size:14px; color:var(--blanco); margin-bottom:4px; }
+.mod-desc { font-size:12px; color:rgba(255,255,255,0.5); line-height:1.5; }
+
+/* TESTIMONIOS */
+.testimonios { background:var(--gris); }
+.test-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; max-width:900px; margin:0 auto; }
+.test-card {
+  background:var(--blanco);
+  border-radius:12px;
+  padding:24px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.08);
+  position:relative;
+}
+.test-card::before {
+  content:'"';
+  font-family:'Montserrat', sans-serif;
+  font-size:80px;
+  font-weight:900;
+  color:var(--naranja);
+  opacity:0.15;
+  position:absolute;
+  top:-10px; left:16px;
+  line-height:1;
+}
+.test-stars { color:var(--amarillo); font-size:16px; margin-bottom:10px; }
+.test-text { font-size:14px; color:var(--texto2); line-height:1.7; margin-bottom:16px; font-style:italic; }
+.test-name { font-family:'Montserrat', sans-serif; font-weight:700; font-size:14px; color:var(--azul); }
+.test-ciudad { font-size:12px; color:var(--texto2); }
+
+/* GARANTIA */
+.garantia {
+  background:linear-gradient(135deg,#F0FFF7,#E8FFE8);
+  border:2px solid var(--verde);
+  border-radius:16px;
+  padding:40px;
+  max-width:700px;
+  margin:0 auto;
+  text-align:center;
+}
+.gar-icon { font-size:52px; margin-bottom:16px; }
+.gar-title { font-family:'Montserrat', sans-serif; font-weight:900; font-size:24px; color:var(--verde); margin-bottom:12px; }
+.gar-text { font-size:15px; color:var(--texto2); line-height:1.7; }
+
+/* CTA FINAL */
+.cta-final {
+  background:linear-gradient(135deg,var(--naranja),var(--naranja2));
+  padding:80px 40px;
+  text-align:center;
+}
+.cta-final h2 {
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:clamp(28px,4vw,48px);
+  color:var(--blanco);
+  margin-bottom:16px;
+  letter-spacing:-0.5px;
+}
+.cta-final p { font-size:18px; color:rgba(255,255,255,0.85); margin-bottom:32px; }
+.cta-btn {
+  display:inline-block;
+  background:var(--blanco);
+  color:var(--naranja);
+  font-family:'Montserrat', sans-serif;
+  font-weight:900;
+  font-size:20px;
+  padding:22px 56px;
+  border-radius:8px;
+  text-decoration:none;
+  transition:all 0.2s;
+  box-shadow:0 8px 32px rgba(0,0,0,0.2);
+}
+.cta-btn:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(0,0,0,0.3); }
+.cta-precio-wrap { margin-top:24px; }
+.cta-antes { font-size:16px; color:rgba(255,255,255,0.6); text-decoration:line-through; }
+.cta-ahora { font-family:'Montserrat', sans-serif; font-weight:900; font-size:36px; color:var(--amarillo); }
+
+/* FOOTER */
+footer {
+  background:var(--azul);
+  padding:30px 40px;
+  text-align:center;
+  color:rgba(255,255,255,0.4);
+  font-size:13px;
+}
+footer strong { color:rgba(255,255,255,0.7); }
+
+/* FAQ */
+.faq-list { max-width:700px; margin:0 auto; }
+.faq-item { border-bottom:1px solid var(--gris2); padding:20px 0; cursor:pointer; }
+.faq-q {
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
+  font-size:15px;
+  color:var(--azul);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.faq-icon { color:var(--naranja); font-size:20px; font-weight:900; flex-shrink:0; transition:transform 0.2s; }
+.faq-a { font-size:14px; color:var(--texto2); line-height:1.7; margin-top:12px; display:none; }
+.faq-item.open .faq-a { display:block; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+
+@media(max-width:600px){
+  section { padding:48px 20px; }
+  .nav { padding:12px 20px; }
+  .hero { padding:48px 20px; }
+  .precio-box { padding:20px; }
+  .garantia { padding:24px; }
+  .cta-final { padding:48px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo">Vende<span>Más</span></div>
+  <a class="nav-cta" href="https://wa.me/?text=Hola%2C%20quiero%20el%20curso%20de%20Mercado%20Libre" target="_blank">🛒 COMPRAR AHORA — $9.900</a>
+</nav>
+
+<!-- CONTADOR -->
+<div class="contador-wrap">
+  <div class="contador-label">⚡ Oferta especial termina en:</div>
+  <div class="contador">
+    <div class="cnt-unit" id="h">00</div>
+    <div class="cnt-sep">:</div>
+    <div class="cnt-unit" id="m">00</div>
+    <div class="cnt-sep">:</div>
+    <div class="cnt-unit" id="s">00</div>
+  </div>
+  <div class="contador-label">— Precio normal: <s>$32.000</s></div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🔥 Más de 500 emprendedores ya lo tienen</div>
+  <h1>El Curso de<br><em>Mercado Libre</em><br>más completo de Argentina</h1>
+  <p class="hero-sub">Aprendé exactamente cómo publicar, vender y escalar en ML desde cero — con el algoritmo, las fotos, los precios y la estrategia que usan los mejores vendedores.</p>
+
+  <div class="precio-box">
+    <div class="precio-antes">Precio normal: $32.000</div>
+    <div class="precio-ahora">$9.900</div>
+    <div class="precio-label">Pago único · Acceso de por vida</div>
+    <div class="descuento-badge">🎉 Ahorrás $22.100 — 69% OFF</div>
+  </div>
+
+  <a class="hero-cta" href="https://wa.me/?text=Hola%2C%20quiero%20el%20curso%20de%20Mercado%20Libre" target="_blank">
+    💬 QUIERO EL CURSO AHORA
+  </a>
+  <div class="urgencia">⏰ Esta oferta vence hoy. <strong>Quedan pocas horas al precio de $9.900.</strong></div>
+</div>
+
+<!-- PARA QUIÉN -->
+<section class="para-quien">
+  <div class="section-label">¿Es para mí?</div>
+  <div class="section-title">Este curso es para vos si...</div>
+  <div class="section-sub">No importa si nunca vendiste nada en ML — este curso arranca desde cero y te lleva hasta tener un negocio funcionando.</div>
+  <div class="pq-grid">
+    <div class="pq-card">
+      <div class="pq-icon">🚀</div>
+      <div class="pq-title">Querés emprender desde casa</div>
+      <div class="pq-desc">Sin local, sin empleados, sin horarios fijos. Solo tu celular o computadora y las ganas de arrancar.</div>
+    </div>
+    <div class="pq-card">
+      <div class="pq-icon">📦</div>
+      <div class="pq-title">Tenés productos y no sabés cómo venderlos</div>
+      <div class="pq-desc">Ya tenés el stock pero tus publicaciones no aparecen o nadie compra. Este curso soluciona exactamente eso.</div>
+    </div>
+    <div class="pq-card">
+      <div class="pq-icon">🇨🇳</div>
+      <div class="pq-title">Querés importar y revender</div>
+      <div class="pq-desc">Comprar barato en China y vender en ML con margen del 200%+. El curso incluye la estrategia completa.</div>
+    </div>
+    <div class="pq-card">
+      <div class="pq-icon">📈</div>
+      <div class="pq-title">Ya vendés pero querés escalar</div>
+      <div class="pq-desc">Vendés algunas unidades pero no podés crecer. Aprendés a optimizar para multiplicar tus ventas actuales.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section>
+  <div class="section-label">Contenido completo</div>
+  <div class="section-title">Todo lo que incluye el curso</div>
+  <div class="section-sub">No es un curso genérico de YouTube. Es la guía más completa y específica que existe para vender en Mercado Libre Argentina.</div>
+  <div class="incluye-grid">
+    <div class="incluye-item"><div class="inc-icon">🔍</div><div><div class="inc-title">Buscador interno inteligente</div><div class="inc-desc">Encontrás cualquier tema al instante. Sin perder tiempo scrolleando.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">🧠</div><div><div class="inc-title">El algoritmo de ML explicado</div><div class="inc-desc">Los 7 factores que ML usa para rankear publicaciones. Conocerlos vale más que cualquier otra cosa.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">📝</div><div><div class="inc-title">Títulos que aparecen en búsquedas</div><div class="inc-desc">La fórmula exacta para escribir títulos que el algoritmo prioriza.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">📸</div><div><div class="inc-title">Fotografía que convierte</div><div class="inc-desc">Cómo hacer fotos profesionales sin cámara profesional y sin gastar plata.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">💰</div><div><div class="inc-title">Estrategia de precios</div><div class="inc-desc">Cuándo cobrar barato, cuándo subir el precio y cómo calcular el margen real.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">🚚</div><div><div class="inc-title">Envíos y logística completa</div><div class="inc-desc">Correo Argentino, Andreani, ML Full — cuándo usar cada uno y cómo reducir costos.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">⭐</div><div><div class="inc-title">Gestión de reputación</div><div class="inc-desc">Cómo conseguir reseñas positivas, manejar reclamos y mantener el color verde.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">📊</div><div><div class="inc-title">Métricas y análisis</div><div class="inc-desc">Qué números mirar cada semana para tomar decisiones que hacen crecer el negocio.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">🇨🇳</div><div><div class="inc-title">Importación desde China</div><div class="inc-desc">AliExpress, Alibaba, aduana argentina y cómo calcular el costo real importado.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">🏆</div><div><div class="inc-title">Cómo escalar a $40.000/día</div><div class="inc-desc">La hoja de ruta concreta para pasar de 0 a 40 mil pesos diarios de ganancia.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">❌</div><div><div class="inc-title">Los 15 errores fatales</div><div class="inc-desc">Todo lo que hacen los que fracasan para que vos no lo repitas.</div></div></div>
+    <div class="incluye-item"><div class="inc-icon">♾️</div><div><div class="inc-title">Acceso de por vida</div><div class="inc-desc">Sin suscripción, sin vencimiento. Lo comprás una vez y es tuyo para siempre.</div></div></div>
+  </div>
+</section>
+
+<!-- MÓDULOS -->
+<section class="modulos-sec">
+  <div class="section-label" style="color:var(--naranja)">Estructura del curso</div>
+  <div class="section-title">9 Módulos completos</div>
+  <div class="section-sub">Cada módulo construye sobre el anterior. Del día 1 hasta tener un negocio funcionando.</div>
+  <div class="modulos-grid">
+    <div class="mod-card"><div class="mod-num">01</div><div><div class="mod-title">Crear y configurar tu cuenta</div><div class="mod-desc">La base que define todo lo que viene después</div></div></div>
+    <div class="mod-card"><div class="mod-num">02</div><div><div class="mod-title">El algoritmo de ML</div><div class="mod-desc">Cómo funciona por dentro y cómo aprovecharlo</div></div></div>
+    <div class="mod-card"><div class="mod-num">03</div><div><div class="mod-title">Publicaciones que venden</div><div class="mod-desc">Título, fotos, descripción y atributos perfectos</div></div></div>
+    <div class="mod-card"><div class="mod-num">04</div><div><div class="mod-title">Estrategia de precios</div><div class="mod-desc">Posicionarte, cuándo subir y cómo calcular margen</div></div></div>
+    <div class="mod-card"><div class="mod-num">05</div><div><div class="mod-title">Envíos y logística</div><div class="mod-desc">La operativa diaria que define tu reputación</div></div></div>
+    <div class="mod-card"><div class="mod-num">06</div><div><div class="mod-title">Atención al cliente</div><div class="mod-desc">Reputación, reclamos y reseñas positivas</div></div></div>
+    <div class="mod-card"><div class="mod-num">07</div><div><div class="mod-title">Métricas y seguimiento</div><div class="mod-desc">Los números que hay que mirar cada semana</div></div></div>
+    <div class="mod-card"><div class="mod-num">08</div><div><div class="mod-title">Escalar el negocio</div><div class="mod-desc">De 5 ventas/día a 50 sin morir en el intento</div></div></div>
+    <div class="mod-card"><div class="mod-num">09</div><div><div class="mod-title">Errores fatales</div><div class="mod-desc">Todo lo que hacen los que fracasan</div></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios">
+  <div class="section-label">Lo que dicen los alumnos</div>
+  <div class="section-title">Resultados reales</div>
+  <div class="section-sub">Personas comunes que aplicaron el curso y transformaron su situación económica.</div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">"Empecé desde cero y en el segundo mes ya estaba ganando $35.000 por día. El módulo del algoritmo fue revelador — nadie te explica eso en YouTube."</div>
+      <div class="test-name">Martina G.</div>
+      <div class="test-ciudad">Córdoba, Argentina</div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">"Tenía productos importados que no vendía. Con el curso optimicé las publicaciones y en una semana tripliqué las ventas. Valió cada peso."</div>
+      <div class="test-name">Carlos R.</div>
+      <div class="test-ciudad">Buenos Aires, Argentina</div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">"Lo que más me gustó es el buscador — encontrás cualquier tema al instante. Es como tener un manual siempre a mano cuando necesitás resolver algo."</div>
+      <div class="test-name">Luciana M.</div>
+      <div class="test-ciudad">Rosario, Argentina</div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTÍA -->
+<section>
+  <div class="section-label">Sin riesgo</div>
+  <div class="section-title">Garantía de 7 días</div>
+  <div class="section-sub"></div>
+  <div class="garantia">
+    <div class="gar-icon">🛡️</div>
+    <div class="gar-title">Si no te gusta, te devolvemos el dinero</div>
+    <div class="gar-text">Comprás con total confianza. Si dentro de los 7 días de recibir el curso sentís que no es lo que esperabas, te devolvemos el 100% del dinero sin preguntas. Así de simple. Nosotros asumimos todo el riesgo.</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--gris)">
+  <div class="section-label">Dudas frecuentes</div>
+  <div class="section-title">Preguntas frecuentes</div>
+  <div class="section-sub"></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">¿Cómo recibo el curso después de pagar? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Una vez confirmado el pago por MercadoPago, te enviamos el archivo del curso directamente por WhatsApp en menos de 10 minutos. Lo abrís en el navegador de tu celular o computadora, sin instalar nada.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">¿Necesito experiencia previa en ML? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Para nada. El curso arranca desde cero absoluto — desde cómo crear la cuenta hasta cómo escalar a $40.000 diarios. Si ya tenés experiencia, los módulos avanzados te van a dar estrategias que probablemente no conocés.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">¿El curso se actualiza? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Sí. Cuando actualizamos el curso con información nueva, te enviamos la versión actualizada sin costo adicional. Comprás una vez y siempre tenés la versión más reciente.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">¿Necesito tener stock para empezar? <span class="faq-icon">+</span></div>
+      <div class="faq-a">No necesariamente. El curso incluye estrategias de dropshipping local donde podés empezar a vender sin tener stock propio. Además enseñamos cómo importar desde China con muy poco capital inicial.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">¿En cuánto tiempo veo resultados? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Depende de tu punto de partida y cuánto tiempo le dedicás. Con aplicación consistente, los primeros resultados aparecen en 2-4 semanas. La meta de $40.000 diarios es realista en el mes 2-3 para la mayoría de los alumnos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final">
+  <h2>¿Seguís esperando el momento ideal?</h2>
+  <p>El momento ideal no existe. El que empieza hoy, en 60 días tiene resultados.<br>El que espera, en 60 días sigue igual.</p>
+  <a class="cta-btn" href="https://wa.me/?text=Hola%2C%20quiero%20el%20curso%20de%20Mercado%20Libre" target="_blank">
+    💬 QUIERO EL CURSO — $9.900
+  </a>
+  <div class="cta-precio-wrap">
+    <div class="cta-antes">Precio normal: $32.000</div>
+    <div class="cta-ahora">Hoy solo $9.900 🔥</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>VendeMás</strong> · Cursos digitales para emprendedores argentinos<br>
+  <span style="margin-top:8px;display:block">Pago seguro con MercadoPago · Garantía 7 días · Entrega inmediata</span>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+
+// Countdown timer - 23 hours from now
+function startCountdown() {
+  const end = new Date();
+  end.setHours(end.getHours() + 23);
+  end.setMinutes(end.getMinutes() + 47);
+
+  function update() {
+    const now = new Date();
+    const diff = end - now;
+    if (diff <= 0) {
+      document.getElementById('h').textContent = '00';
+      document.getElementById('m').textContent = '00';
+      document.getElementById('s').textContent = '00';
+      return;
+    }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('h').textContent = String(h).padStart(2,'0');
+    document.getElementById('m').textContent = String(m).padStart(2,'0');
+    document.getElementById('s').textContent = String(s).padStart(2,'0');
+  }
+  update();
+  setInterval(update, 1000);
+}
+startCountdown();
+</script>
+</body>
+</html>
